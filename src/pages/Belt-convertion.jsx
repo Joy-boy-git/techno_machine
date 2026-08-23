@@ -15,7 +15,7 @@ import {
 
 import image1 from "../assets/AutoLCM-01.avif";
 import image2 from "../assets/Manual_LCM.avif";
-import image3 from "../assets/Mini_Belt_Slitting.avif";
+import image3 from "../assets/Mini_Belt_slitting.avif";
 import image4 from "../assets/Belt_Slitting_Machine.avif";
 import image5 from "../assets/Belt_Press.avif";
 import image6 from "../assets/Belt_Press_2.avif";
