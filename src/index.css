@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+:root {
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+
+    color: #f5f5f5;
+    background: #08090b;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    background: #08090b;
+    color: #f5f5f5;
+    overflow-x: hidden;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+    background: #f97316;
+    color: #ffffff;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #08090b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #30343b;
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #f97316;
+}
+
+/* Reusable */
+
+.container-main {
+    width: min(1400px, calc(100% - 40px));
+    margin-inline: auto;
+}
+
+.orange-text {
+    color: #f97316;
+}
+
+.section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+
+    color: #f97316;
+}
+
+.section-label::before {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: #f97316;
+}
+
+.grid-background {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+
+    background-size: 60px 60px;
+}
+
+.glass {
+    background: rgba(20, 22, 26, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.orange-glow {
+    box-shadow:
+        0 0 80px rgba(249, 115, 22, 0.08),
+        inset 0 0 50px rgba(249, 115, 22, 0.025);
+}
+
+.text-balance {
+    text-wrap: balance;
+}
+
+/* ============================================================
+   TECHNO MACHINE PRODUCT CARDS
+============================================================ */
+
+.machine-card {
+    isolation: isolate;
+}
+
+/* Moving orange dot around card */
+.machine-card-dot {
+    animation: machineDot 6s linear infinite;
+}
+
+@keyframes machineDot {
+    0%,
+    100% {
+        top: 10%;
+        right: 10%;
+    }
+
+    25% {
+        top: 10%;
+        right: calc(100% - 30px);
+    }
+
+    50% {
+        top: calc(100% - 30px);
+        right: calc(100% - 30px);
+    }
+
+    75% {
+        top: calc(100% - 30px);
+        right: 10%;
+    }
+}
+
+/* Moving light ray */
+.machine-ray {
+    transform-origin: 10% 50%;
+    animation: machineRay 7s ease-in-out infinite;
+}
+
+@keyframes machineRay {
+    0% {
+        transform: translate(-20%, -10%) rotate(40deg);
+        opacity: 0.35;
+    }
+
+    50% {
+        transform: translate(35%, 15%) rotate(40deg);
+        opacity: 0.75;
+    }
+
+    100% {
+        transform: translate(-20%, -10%) rotate(40deg);
+        opacity: 0.35;
+    }
+}
+
+/* Card hover lift */
+.machine-card {
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+.machine-card:hover {
+    transform: translateY(-6px);
+    filter: brightness(1.08);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .machine-card,
+    .machine-card-dot,
+    .machine-ray {
+        animation: none;
+        transition: none;
+    }
+
+    .machine-card:hover {
+        transform: none;
+    }
+}
